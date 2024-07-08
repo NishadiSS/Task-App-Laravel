@@ -17,4 +17,12 @@ Route::get('/tasks',function(){
 
 Route::post('/saveTask', [Frontendcontroller::class, 'store']);
 
-Route::get('/markascompleted/{id}',[FrontendController::class, 'UpdateTasksCompleted']);
+Route::get('/markascompleted/{id}',[FrontendController::class, 'UpdateTasksAsCompleted']);
+
+Route::get('/markasnotcompleted/{id}',[FrontendController::class, 'UpdateTasksAsNotCompleted']);
+
+Route::get('/deletetask/{id}',[FrontendController::class, 'DeleteTask']);
+
+Route::get('/updatetask/{id}',[FrontendController::class, 'UpdateTaskView']);
+
+Route::post('/updatetasks', [FrontendController::class, 'UpdateTask']);

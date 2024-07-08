@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="text-center">
-            <h1>Daily </h1>
+            <h1>Daily Tasks</h1>
                 <div class="row">
                         <div class="col-md-12">
                             @foreach($errors->all() as $error)
@@ -45,9 +45,15 @@
                                     <button class="btn btn-warning">Not Completed</button>
                                     @endif
                                     </td>
+                                    
                                     <td>
+                                        @if(!$task->iscompleted)
                                         <a href="/markascompleted/{{$task->id}}" class="btn btn-primary">Mark As Completed</a>
-                                        
+                                        @else
+                                        <a href="/markasnotcompleted/{{$task->id}}" class="btn btn-danger">Mark As Not Completed</a>
+                                        @endif
+                                        <a href="/deletetask/{{$task->id}}" class="btn btn-warning">Delete</a>
+                                        <a href="/updatetask/{{$task->id}}" class="btn btn-success">Update</a>
                                     </td>
                                 </tr>
                                 @endforeach

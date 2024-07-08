@@ -11,14 +11,6 @@ class Frontendcontroller extends Controller
 
     use ValidatesRequests;
 
-    public function indexaboutus(){
-        return view('aboutus');
-    }
-
-    public function indexcontactus(){
-        return view('contactus');
-    }
-
     public function indextasks(){
         return view('tasks');
     }
@@ -36,10 +28,41 @@ class Frontendcontroller extends Controller
 
     }
 
-    public function UpdateTasksCompleted($id){
+    public function UpdateTasksAsCompleted($id){
         $task=Tasks::find($id);
         $task->iscompleted=1;
         $task->save();
         return redirect()->back();
     }
+
+    public function UpdateTasksAsNotCompleted($id){
+        $task=Tasks::find($id);
+        $task->iscompleted=0;
+        $task->save();
+        return redirect()->back();
+    }
+
+    public function DeleteTask($id){
+        $task=Tasks::find($id);
+        $task->delete();
+        return redirect()->back();
+    }
+
+    public function UpdateTaskView($id){
+        $task=Tasks::find($id);
+        return view('updatetask')->with('taskdata',$task);
+    }
+
+    public function UpdateTask(Request $request){
+        //dd($request);
+        $id=$request->id;
+        $task=$request->task;
+        $data=Tasks::find($id);
+        $data->task=$task;
+        $data->save();
+        $datas=Tasks::all();
+        return view('tasks')->with('tasks',$datas);
+
+    }
+
 }
