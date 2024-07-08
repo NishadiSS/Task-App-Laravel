@@ -30,8 +30,16 @@ class Frontendcontroller extends Controller
         $task->task=$request->task;
         $task->save();
         $data=Tasks::all();
-        dd($data);
-        return redirect()->back();
+        //dd($data);
+        //return redirect()->back();
+        return view('tasks')->with('tasks',$data);
 
+    }
+
+    public function UpdateTasksCompleted($id){
+        $task=Tasks::find($id);
+        $task->iscompleted=1;
+        $task->save();
+        return redirect()->back();
     }
 }

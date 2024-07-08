@@ -11,7 +11,10 @@ Route::get('/', function () {
 //Route::get('/contact', [FrontendController::class, 'indexcontactus']);
 
 Route::get('/tasks',function(){
-    return view('tasks');
+    $data=App\Models\Tasks::all();
+    return view('tasks')->with('tasks',$data);
 });
 
 Route::post('/saveTask', [Frontendcontroller::class, 'store']);
+
+Route::get('/markascompleted/{id}',[FrontendController::class, 'UpdateTasksCompleted']);
