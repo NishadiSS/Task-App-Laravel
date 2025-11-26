@@ -18,10 +18,7 @@ A web-based Task Management System built using the **Laravel PHP Framework**. Th
 *   **Database:** MySQL
 *   **Server Environment:** Apache / Nginx
 
-## 📸 Screenshots
 
-<!-- ඔබට පුළුවන් නම් App එකේ screenshots 2ක් 3ක් අරගෙන මෙතනට දාන්න. නැත්නම් මේ කොටස මකලා දාන්න -->
-*(Add a screenshot of your dashboard here)*
 
 ## ⚙️ Installation & Setup
 
@@ -29,8 +26,8 @@ Follow these steps to run the project locally:
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone [https://github.com/NishadiSS/Task-App-Laravel.git]
+    cd Task-App-Laravel
     ```
 
 2.  **Install Dependencies**
@@ -44,7 +41,7 @@ Follow these steps to run the project locally:
     ```bash
     cp .env.example .env
     ```
-    *Update your database credentials (DB_DATABASE, DB_USERNAME, DB_PASSWORD) in the `.env` file.*
+   
 
 4.  **Generate App Key**
     ```bash
